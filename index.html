@@ -6,670 +6,116 @@
     <title>Sook D | The Luxury Green Sanctuary of Bang Krachao</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Sarabun:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet" />
 
     <style>
       /* --- Reset & Base Styles --- */
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        font-family: "Inter", "Sarabun", sans-serif;
-        background-color: #fcfbf9;
-        color: #2c302e;
-        line-height: 1.6;
-        overflow-x: hidden;
-      }
-      h1,
-      h2,
-      h3 {
-        font-family: "Playfair Display", "Sarabun", serif;
-        font-weight: 400;
-        letter-spacing: 1px;
-      }
-      a {
-        text-decoration: none;
-        color: inherit;
-      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body { font-family: "Inter", "Sarabun", sans-serif; background-color: #fcfbf9; color: #2c302e; line-height: 1.6; overflow-x: hidden; }
+      h1, h2, h3 { font-family: "Playfair Display", "Sarabun", serif; font-weight: 400; letter-spacing: 1px; }
+      a { text-decoration: none; color: inherit; }
 
-      /* --- Luxury Navigation Bar --- */
-      header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 30px 50px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 1000;
-        transition: all 0.4s ease;
-      }
-      header.scrolled,
-      header.subpage-active {
-        padding: 15px 50px;
-        background-color: rgba(252, 251, 249, 0.95);
-        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-      }
-      .logo {
-        font-family: "Playfair Display", serif;
-        font-size: 24px;
-        font-weight: 600;
-        letter-spacing: 4px;
-        text-transform: uppercase;
-        color: #fff;
-        cursor: pointer;
-      }
-      header.scrolled .logo,
-      header.subpage-active .logo {
-        color: #2c302e;
-      }
-      .nav-container {
-        display: flex;
-        align-items: center;
-        gap: 40px;
-      }
-      .nav-links {
-        display: flex;
-        list-style: none;
-        gap: 35px;
-      }
-      .nav-links a {
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        color: #fff;
-        cursor: pointer;
-      }
-      header.scrolled .nav-links a,
-      header.subpage-active .nav-links a {
-        color: #2c302e;
-      }
-
-      .lang-switcher {
-        display: flex;
-        gap: 8px;
-        font-size: 12px;
-        letter-spacing: 1px;
-        color: rgba(255, 255, 255, 0.6);
-        font-weight: 500;
-      }
-      header.scrolled .lang-switcher,
-      header.subpage-active .lang-switcher {
-        color: rgba(44, 48, 46, 0.5);
-      }
-      .lang-btn {
-        cursor: pointer;
-        text-transform: uppercase;
-      }
-      .lang-btn.active {
-        color: #fff;
-        font-weight: 600;
-        border-bottom: 1px solid #fff;
-      }
-      header.scrolled .lang-btn.active,
-      header.subpage-active .lang-btn.active {
-        color: #2c302e;
-        border-bottom-color: #2c302e;
-      }
-
-      /* --- Luxury Cart Widget --- */
-      .cart-widget {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        position: relative;
-        color: #fff;
-        transition: color 0.3s;
-      }
-      header.scrolled .cart-widget,
-      header.subpage-active .cart-widget {
-        color: #2c302e;
-      }
-      .cart-icon-svg {
-        width: 20px;
-        height: 20px;
-        fill: currentColor;
-      }
-      .cart-badge {
-        position: absolute;
-        top: -8px;
-        right: -10px;
-        background-color: #c9a054;
-        color: #fff;
-        font-size: 10px;
-        font-weight: 600;
-        width: 16px;
-        height: 16px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: "Inter", sans-serif;
-      }
-
-      /* --- Global Shopping Cart Drawer --- */
-      .cart-drawer {
-        position: fixed;
-        top: 0;
-        right: -450px;
-        width: 450px;
-        height: 100vh;
-        background-color: #fcfbf9;
-        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.05);
-        z-index: 3000;
-        transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-        display: flex;
-        flex-direction: column;
-        border-left: 1px solid #e8e5dc;
-      }
-      .cart-drawer.open {
-        right: 0;
-      }
-      .cart-drawer-header {
-        padding: 30px;
-        border-bottom: 1px solid #e2e0db;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .cart-drawer-title {
-        font-family: "Playfair Display", serif;
-        font-size: 22px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-      .cart-drawer-close {
-        font-size: 28px;
-        cursor: pointer;
-        color: #8c92ac;
-        transition: color 0.3s;
-      }
-      .cart-drawer-close:hover {
-        color: #2c302e;
-      }
-      .cart-items-container {
-        flex: 1;
-        overflow-y: auto;
-        padding: 30px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-      }
-      .cart-empty-msg {
-        text-align: center;
-        color: #8c92ac;
-        font-weight: 300;
-        margin-top: 40px;
-        font-size: 14px;
-      }
-      .cart-item {
-        display: flex;
-        gap: 15px;
-        align-items: center;
-        border-bottom: 1px solid #f2f0ea;
-        padding-bottom: 20px;
-      }
-      .cart-item-img {
-        width: 70px;
-        height: 70px;
-        object-fit: cover;
-        border-radius: 2px;
-      }
-      .cart-item-details {
-        flex: 1;
-      }
-      .cart-item-name {
-        font-family: "Playfair Display", "Sarabun", serif;
-        font-size: 15px;
-        color: #2c302e;
-        margin-bottom: 5px;
-      }
-      .cart-item-price {
-        font-size: 13px;
-        color: #8c92ac;
-      }
-      .cart-item-qty-control {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-top: 8px;
-      }
-      .qty-btn {
-        background: none;
-        border: 1px solid #e2e0db;
-        width: 22px;
-        height: 22px;
-        cursor: pointer;
-        font-size: 12px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transition: all 0.2s;
-      }
-      .qty-btn:hover {
-        background-color: #2c302e;
-        color: #fff;
-        border-color: #2c302e;
-      }
-      .qty-val {
-        font-size: 13px;
-        font-weight: 500;
-        min-width: 15px;
-        text-align: center;
-      }
-      .cart-item-remove {
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #b13434;
-        cursor: pointer;
-        margin-left: auto;
-      }
-      .cart-drawer-footer {
-        padding: 30px;
-        border-top: 1px solid #e2e0db;
-        background-color: #fff;
-      }
-      .cart-summary-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-        font-size: 15px;
-        font-weight: 500;
-      }
-      .cart-total-price {
-        font-family: "Inter", sans-serif;
-        font-size: 18px;
-        color: #2c302e;
-        font-weight: 600;
-      }
-      .checkout-btn {
-        width: 100%;
-        padding: 16px;
-        background-color: #2c302e;
-        color: #fcfbf9;
-        border: none;
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: opacity 0.3s;
-      }
-      .checkout-btn:hover {
-        opacity: 0.9;
-      }
-      .cart-overlay {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(44, 48, 46, 0.4);
-        backdrop-filter: blur(2px);
-        z-index: 2999;
-      }
-      .cart-overlay.open {
-        display: block;
-      }
-
-      /* --- Global View Control --- */
-      .page-view {
-        display: none;
-      }
-      #homepage-view {
-        display: block;
-      }
-
-      /* --- Hero Section --- */
-      .hero {
-        height: 100vh;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        color: #fff;
-      }
-      .hero-bg {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url("https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1920&q=80");
-        background-size: cover;
-        background-position: center;
-        filter: brightness(0.65);
-        transition: transform 8s ease;
-        transform: scale(1.05);
-        z-index: 1;
-      }
-      .hero.active .hero-bg {
-        transform: scale(1);
-      }
-      .hero-content {
-        position: relative;
-        z-index: 10;
-        max-width: 900px;
-        padding: 0 20px;
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 1.5s ease 0.5s;
-      }
-      .hero.active .hero-content {
-        opacity: 1;
-        transform: translateY(0);
-      }
-      .hero-subtitle {
-        font-size: 13px;
-        text-transform: uppercase;
-        letter-spacing: 6px;
-        margin-bottom: 20px;
-        font-weight: 300;
-      }
-      .hero-title {
-        font-size: 52px;
-        line-height: 1.3;
-        margin-bottom: 30px;
-        font-style: italic;
-      }
-
-      .intro {
-        padding: 120px 20px 60px 20px;
-        text-align: center;
-        max-width: 900px;
-        margin: 0 auto;
-      }
-      .section-tag {
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 4px;
-        color: #8c92ac;
-        margin-bottom: 20px;
-        display: block;
-      }
-      .intro h2 {
-        font-size: 36px;
-        color: #1a1c1b;
-        line-height: 1.4;
-      }
-
-      /* --- 3-Column Luxury Grid --- */
-      .tri-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        padding: 0 40px 60px 40px;
-        max-width: 1600px;
-        margin: 0 auto;
-      }
-      .grid-card {
-        position: relative;
-        height: 650px;
-        overflow: hidden;
-        background-color: #000;
-        cursor: pointer;
-      }
-      .grid-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 1.8s cubic-bezier(0.25, 1, 0.5, 1);
-        filter: brightness(0.85);
-      }
-      .grid-card:hover .grid-img {
-        transform: scale(1.05);
-      }
-      .grid-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 40px;
-        background: linear-gradient(
-          to top,
-          rgba(0, 0, 0, 0.7) 0%,
-          rgba(0, 0, 0, 0) 100%
-        );
-        color: #fff;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        height: 60%;
-      }
-      .grid-title {
-        font-family: "Playfair Display", "Sarabun", serif;
-        font-size: 26px;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        margin-bottom: 15px;
-      }
-      .grid-description {
-        font-size: 14px;
-        font-weight: 300;
-        line-height: 1.6;
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-      }
-      .grid-card:hover .grid-description {
-        opacity: 0.95;
-        transform: translateY(0);
-      }
-
-      /* --- NEW: 4-Column Sanctuary Locations Grid --- */
-      .location-section-title {
-        text-align: center;
-        margin: 60px auto 30px auto;
-        padding: 0 20px;
-      }
-      .location-section-title h2 {
-        font-size: 32px;
-        color: #1a1c1b;
-      }
-      .location-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 15px;
-        padding: 0 40px 80px 40px;
-        max-width: 1600px;
-        margin: 0 auto;
-      }
-      .loc-card {
-        position: relative;
-        height: 380px;
-        overflow: hidden;
-        background-color: #000;
-        cursor: pointer;
-        border-radius: 2px;
-      }
-      .loc-card-img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
-        filter: brightness(0.8);
-      }
-      .loc-card:hover .loc-card-img {
-        transform: scale(1.06);
-      }
-      .loc-card-overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        padding: 25px;
-        background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);
-        color: #fff;
-      }
-      .loc-card-title {
-        font-family: "Playfair Display", "Sarabun", serif;
-        font-size: 20px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        margin-bottom: 4px;
-      }
-      .loc-card-sub {
-        font-size: 12px;
-        font-weight: 300;
-        opacity: 0.85;
-        letter-spacing: 1px;
-      }
-
-      /* ==========================================================================
-         🌟 IMPROVED SECTION: Social Impact Dashboard (Refined Design)
-         ========================================================================== */
-      .impact-section {
-        background-color: #fcfbf9;
-        padding: 100px 40px;
-        border-top: 1px solid #e8e5dc;
-        border-bottom: 1px solid #e8e5dc;
-      }
-      .impact-container {
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      .impact-header {
-        text-align: center;
-        max-width: 700px;
-        margin: 0 auto 70px auto;
-      }
-      .impact-header h2 {
-        font-size: 40px;
-        color: #2c302e;
-        margin-bottom: 20px;
-        font-style: italic;
-      }
-      .impact-header p {
-        font-size: 15px;
-        color: #8c92ac;
-        font-weight: 300;
-        line-height: 1.8;
-      }
-      .impact-grid {
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 20px;
-      }
-      .impact-card {
-        background: #fff;
-        padding: 35px 20px;
-        text-align: center;
-        border: 1px solid #f2f0ea;
-        border-radius: 4px;
-        transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
-      }
-      .impact-card:hover {
-        border-color: #c9a054;
-        box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-        transform: translateY(-8px);
-      }
-      .impact-icon {
-        width: 40px;
-        height: 40px;
-        margin-bottom: 25px;
-        filter: grayscale(0.5);
-        transition: filter 0.3s;
-      }
-      .impact-card:hover .impact-icon {
-        filter: grayscale(0);
-      }
-      .impact-number {
-        font-family: "Playfair Display", serif;
-        font-size: 22px;
-        font-weight: 600;
-        color: #2c302e;
-        margin-bottom: 10px;
-      }
-      .impact-title {
-        font-size: 11px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        color: #c9a054;
-        margin-bottom: 10px;
-      }
-      .impact-desc {
-        font-size: 12px;
-        color: #8c92ac;
-        line-height: 1.5;
-        font-weight: 300;
-      }
-
-      /* ปุ่มย้อนกลับสไตล์เรียบหรู */
-      .back-btn-container {
-        max-width: 1200px;
-        margin: 100px auto 10px auto;
-        padding: 0 20px;
-      }
-      .global-back-btn {
-        display: inline-block;
-        font-size: 12px;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        color: #2c302e;
-        cursor: pointer;
-        font-weight: 500;
-        border-bottom: 1px solid #2c302e;
-        padding-bottom: 3px;
-      }
+      /* --- Navigation --- */
+      header { position: fixed; top: 0; left: 0; width: 100%; padding: 30px 50px; display: flex; justify-content: space-between; align-items: center; z-index: 1000; transition: all 0.4s ease; }
+      header.scrolled, header.subpage-active { padding: 15px 50px; background-color: rgba(252, 251, 249, 0.95); box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05); }
+      .logo { font-family: "Playfair Display", serif; font-size: 24px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #fff; cursor: pointer; }
+      header.scrolled .logo, header.subpage-active .logo { color: #2c302e; }
+      .nav-container { display: flex; align-items: center; gap: 40px; }
+      .nav-links { display: flex; list-style: none; gap: 35px; }
+      .nav-links a { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: #fff; cursor: pointer; }
+      header.scrolled .nav-links a, header.subpage-active .nav-links a { color: #2c302e; }
       
-      /* (ส่วนที่เหลือของโค้ดคงเดิม) */
+      /* --- Cart Widget & Drawer --- */
+      .cart-widget { display: flex; align-items: center; cursor: pointer; position: relative; color: #fff; transition: color 0.3s; }
+      header.scrolled .cart-widget, header.subpage-active .cart-widget { color: #2c302e; }
+      .cart-badge { position: absolute; top: -8px; right: -10px; background-color: #c9a054; color: #fff; font-size: 10px; font-weight: 600; width: 16px; height: 16px; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
+      .cart-drawer { position: fixed; top: 0; right: -450px; width: 450px; height: 100vh; background-color: #fcfbf9; box-shadow: -5px 0 30px rgba(0, 0, 0, 0.05); z-index: 3000; transition: right 0.4s cubic-bezier(0.25, 1, 0.5, 1); display: flex; flex-direction: column; }
+      .cart-drawer.open { right: 0; }
+      .cart-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(44, 48, 46, 0.4); backdrop-filter: blur(2px); z-index: 2999; }
+      .cart-overlay.open { display: block; }
+
+      /* --- Hero & Sections --- */
+      .hero { height: 100vh; position: relative; display: flex; justify-content: center; align-items: center; text-align: center; color: #fff; }
+      .hero-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url("https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1920&q=80"); background-size: cover; background-position: center; filter: brightness(0.65); z-index: 1; }
+      .hero-content { position: relative; z-index: 10; padding: 0 20px; }
+      .intro { padding: 120px 20px 60px 20px; text-align: center; max-width: 900px; margin: 0 auto; }
+      .section-tag { font-size: 11px; text-transform: uppercase; letter-spacing: 4px; color: #8c92ac; margin-bottom: 20px; display: block; }
+
+      /* --- Social Impact Dashboard (Refined) --- */
+      .impact-section { background-color: #fcfbf9; padding: 100px 40px; border-top: 1px solid #e8e5dc; border-bottom: 1px solid #e8e5dc; }
+      .impact-container { max-width: 1200px; margin: 0 auto; }
+      .impact-header { text-align: center; max-width: 700px; margin: 0 auto 70px auto; }
+      .impact-header h2 { font-size: 40px; color: #2c302e; margin-bottom: 20px; font-style: italic; }
+      .impact-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+      .impact-card { background: #fff; padding: 35px 20px; text-align: center; border: 1px solid #f2f0ea; border-radius: 4px; transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1); }
+      .impact-card:hover { border-color: #c9a054; box-shadow: 0 20px 40px rgba(0,0,0,0.06); transform: translateY(-8px); }
+      .impact-icon { width: 40px; height: 40px; margin-bottom: 25px; filter: grayscale(0.5); transition: filter 0.3s; }
+      .impact-card:hover .impact-icon { filter: grayscale(0); }
+      .impact-number { font-family: "Playfair Display", serif; font-size: 22px; font-weight: 600; color: #2c302e; margin-bottom: 10px; }
+      .impact-title { font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #c9a054; margin-bottom: 10px; }
+      .impact-desc { font-size: 12px; color: #8c92ac; line-height: 1.5; font-weight: 300; }
+
+      /* --- Utility --- */
+      .page-view { display: none; }
+      #homepage-view { display: block; }
+      .shop-banner, .taste-banner, .explore-banner, .discover-banner { height: 45vh; display: flex; justify-content: center; align-items: center; text-align: center; color: #fff; background-size: cover; background-position: center; }
+      .product-grid, .route-grid, .workshop-grid { display: grid; gap: 40px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+      .product-grid { grid-template-columns: repeat(3, 1fr); }
     </style>
   </head>
   <body>
+    <header id="main-header">
+      <a onclick="navigate('home')" class="logo">Sook D</a>
+      <div class="nav-container">
+        <ul class="nav-links">
+          <li><a onclick="navigate('discover')" id="nav-discover">Discover</a></li>
+          <li><a onclick="navigate('shop')" id="nav-shops">Sook Shops</a></li>
+          <li><a onclick="navigate('taste')" id="nav-taste">Sook Taste</a></li>
+          <li><a onclick="navigate('explore')" id="nav-explore">Sook Explore</a></li>
+        </ul>
+        <div class="cart-widget" onclick="toggleCart(true)">
+          <svg class="cart-icon-svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1z"/></svg>
+          <span class="cart-badge" id="cart-global-count">0</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="cart-overlay" id="cart-global-overlay" onclick="toggleCart(false)"></div>
+    <div class="cart-drawer" id="cart-global-drawer">
+      <div class="cart-drawer-header"><h3>Your Selection</h3><span onclick="toggleCart(false)" style="cursor:pointer">&times;</span></div>
+      <div class="cart-items-container" id="cart-items-wrapper"></div>
+      <div class="cart-drawer-footer"><button class="checkout-btn" onclick="initiatePaymentGateway()">Proceed to Payment</button></div>
+    </div>
+
     <div id="homepage-view" class="page-view">
+      <section class="hero"><div class="hero-bg"></div><div class="hero-content"><h1>The River Oasis</h1></div></section>
       <section class="impact-section">
         <div class="impact-container">
-          <div class="impact-header">
-            <span class="section-tag" id="imp-sec-tag">Measurable Social Impact</span>
-            <h2 id="imp-sec-heading">Our Sustainable Framework Results</h2>
-            <p id="imp-sec-desc">Driven by Learndo Social Enterprise, we turn luxury community tourism into transparent ecological value.</p>
-          </div>
+          <div class="impact-header"><h2>Our Sustainable Framework Results</h2></div>
           <div class="impact-grid">
-            <div class="impact-card">
-              <img src="https://img.icons8.com/color/96/co2.png" class="impact-icon" />
-              <div class="impact-number">-12.4t</div>
-              <h4 class="impact-title" id="imp-t1">Carbon Footprint</h4>
-              <p class="impact-desc" id="imp-d1">Emission reduction across all smart digital routes.</p>
-            </div>
-            <div class="impact-card">
-              <img src="https://img.icons8.com/color/96/garbage-truck.png" class="impact-icon" />
-              <div class="impact-number">3.8t</div>
-              <h4 class="impact-title" id="imp-t2">Waste Diverted</h4>
-              <p class="impact-desc" id="imp-d2">Organic waste logged and fully recycled.</p>
-            </div>
-            <div class="impact-card">
-              <img src="https://img.icons8.com/color/96/thai-baht.png" class="impact-icon" />
-              <div class="impact-number">420K+</div>
-              <h4 class="impact-title" id="imp-t3">Local Revenue</h4>
-              <p class="impact-desc" id="imp-d3">Direct income for farmers and artisans.</p>
-            </div>
-            <div class="impact-card">
-              <img src="https://img.icons8.com/color/96/sprout.png" class="impact-icon" />
-              <div class="impact-number">1.5K</div>
-              <h4 class="impact-title" id="imp-t4">Trees Planted</h4>
-              <p class="impact-desc" id="imp-d4">Native saplings to restore biodiversity.</p>
-            </div>
-            <div class="impact-card">
-              <img src="https://img.icons8.com/color/96/diploma.png" class="impact-icon" />
-              <div class="impact-number">850</div>
-              <h4 class="impact-title" id="imp-t5">Empowered</h4>
-              <p class="impact-desc" id="imp-d5">Upskilled in digital & ecological tech.</p>
-            </div>
+            <div class="impact-card"><img src="https://img.icons8.com/color/96/co2.png" class="impact-icon"><div class="impact-number">-12.4t</div><h4 class="impact-title">Carbon</h4><p class="impact-desc">Emission reduction.</p></div>
+            <div class="impact-card"><img src="https://img.icons8.com/color/96/garbage-truck.png" class="impact-icon"><div class="impact-number">3.8t</div><h4 class="impact-title">Waste</h4><p class="impact-desc">Fully recycled.</p></div>
+            <div class="impact-card"><img src="https://img.icons8.com/color/96/thai-baht.png" class="impact-icon"><div class="impact-number">420K+</div><h4 class="impact-title">Revenue</h4><p class="impact-desc">Direct local support.</p></div>
+            <div class="impact-card"><img src="https://img.icons8.com/color/96/sprout.png" class="impact-icon"><div class="impact-number">1.5K</div><h4 class="impact-title">Trees</h4><p class="impact-desc">Native restoration.</p></div>
+            <div class="impact-card"><img src="https://img.icons8.com/color/96/diploma.png" class="impact-icon"><div class="impact-number">850</div><h4 class="impact-title">Empowered</h4><p class="impact-desc">Digital upskilling.</p></div>
           </div>
         </div>
       </section>
-      
-      </div>
-    
-    </body>
+    </div>
+
+    <script>
+      let shoppingCart = [];
+      function navigate(page) {
+        document.querySelectorAll('.page-view').forEach(v => v.style.display = 'none');
+        document.getElementById(page + '-view') ? document.getElementById(page + '-view').style.display = 'block' : document.getElementById('homepage-view').style.display = 'block';
+      }
+      function toggleCart(open) {
+        document.getElementById('cart-global-drawer').classList.toggle('open', open);
+        document.getElementById('cart-global-overlay').style.display = open ? 'block' : 'none';
+      }
+      function initiatePaymentGateway() {
+        alert("Proceeding to secure checkout...");
+      }
+    </script>
+  </body>
 </html>
