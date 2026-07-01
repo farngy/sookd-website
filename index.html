@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sook D | The Luxury Green Sanctuary of Bang Krachao</title>
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2 family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
         /* --- Reset & Base Styles --- */
@@ -135,14 +134,13 @@
             color: #fff;
         }
 
-        /* ใช้ลิงก์ภาพภายนอกที่เสถียรเป็นตัวดึงรูปปั่นจักรยานกลางอุโมงค์ต้นไม้ แทนการเรียกไฟล์ในเครื่อง เพื่อป้องกันหน้าจอขาว */
         .hero-bg {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1920&q=80');
+            background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             filter: brightness(0.65);
@@ -203,238 +201,3 @@
         }
 
         .intro h2 {
-            font-size: 36px;
-            color: #1a1c1b;
-            line-height: 1.4;
-        }
-
-        /* --- 3-Column Luxury Grid --- */
-        .tri-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding: 0 40px 120px 40px;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-
-        .grid-card {
-            position: relative;
-            height: 650px;
-            overflow: hidden;
-            background-color: #000;
-        }
-
-        .grid-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1.8s cubic-bezier(0.25, 1, 0.5, 1);
-            filter: brightness(0.85);
-        }
-
-        .grid-card:hover .grid-img {
-            transform: scale(1.05);
-        }
-
-        .grid-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 40px;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            height: 60%;
-        }
-
-        .grid-title {
-            font-family: 'Playfair Display', 'Sarabun', serif;
-            font-size: 26px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-        }
-
-        .grid-description {
-            font-size: 14px;
-            font-weight: 300;
-            line-height: 1.6;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .grid-card:hover .grid-description {
-            opacity: 0.95;
-            transform: translateY(0);
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: #2c302e;
-            color: #fcfbf9;
-            padding: 80px 20px 40px 20px;
-            text-align: center;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
-            letter-spacing: 5px;
-            margin-bottom: 40px;
-        }
-
-        .copyright {
-            font-size: 11px;
-            opacity: 0.4;
-        }
-
-        @media (max-width: 1024px) {
-            .tri-grid {
-                grid-template-columns: 1fr;
-                padding: 0 20px 80px 20px;
-            }
-            .grid-card {
-                height: 500px;
-            }
-            .grid-description {
-                opacity: 0.9;
-                transform: translateY(0);
-            }
-            header {
-                padding: 20px;
-            }
-            .nav-links {
-                display: none;
-            }
-        }
-    </style>
-</head>
-<body>
-
-    <!-- Header Navigation -->
-    <header id="main-header">
-        <a href="#" class="logo">Sook D</a>
-        <div class="nav-container">
-            <ul class="nav-links">
-                <li><a href="#shops" id="nav-shops">Sook Shops</a></li>
-                <li><a href="#taste" id="nav-taste">Sook Taste</a></li>
-                <li><a href="#explore" id="nav-explore">Sook Explore</a></li>
-            </ul>
-            <div class="lang-switcher">
-                <span class="lang-btn" onclick="switchLang('th')" id="btn-th">TH</span>
-                <span>/</span>
-                <span class="lang-btn active" onclick="switchLang('en')" id="btn-en">EN</span>
-            </div>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="hero-section">
-        <div class="hero-bg"></div>
-        <div class="hero-content">
-            <p class="hero-subtitle" id="hero-sub">Sook D • Bang Krachao</p>
-            <h1 class="hero-title" id="hero-main">The River Oasis<br>Where Time Stands Still</h1>
-        </div>
-    </section>
-
-    <!-- Intro Text -->
-    <section class="intro">
-        <span class="section-tag" id="intro-tag">The Tri-Senses of Sook D</span>
-        <h2 id="intro-text">Experience Bang Krachao through three curated perspectives.</h2>
-    </section>
-
-    <!-- 3-Column Luxury Grid Section -->
-    <section class="tri-grid">
-        
-        <!-- ช่องที่ 1: Sook Shops / สุขชอป -->
-        <div class="grid-card" id="shops">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Sook Shops" class="grid-img">
-            <div class="grid-overlay">
-                <h3 class="grid-title" id="card-title-1">Sook Shops</h3>
-                <p class="grid-description" id="card-desc-1">Curating premium eco-crafts and community products with sustainable supply chain logging, turning local wisdom into tangible everyday luxury.</p>
-            </div>
-        </div>
-
-        <!-- ช่องที่ 2: Sook Taste / สุขชิม -->
-        <div class="grid-card" id="taste">
-            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=800&q=80" alt="Sook Taste" class="grid-img">
-            <div class="grid-overlay">
-                <h3 class="grid-title" id="card-title-2">Sook Taste</h3>
-                <p class="grid-description" id="card-desc-2">Embracing the gastronomy digitization of traditional recipes. Savor precision-cooked heritage dishes sourced transparently from eco-friendly agriculture.</p>
-            </div>
-        </div>
-
-        <!-- ช่องที่ 3: Sook Explore / สุขสนุก -->
-        <div class="grid-card" id="explore">
-            <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=800&q=80" alt="Sook Explore" class="grid-img">
-            <div class="grid-overlay">
-                <h3 class="grid-title" id="card-title-3">Sook Explore</h3>
-                <p class="grid-description">Journey through customized local eco-tourism. Discover hidden waterways, sound meditation sessions, and green innovations designed to engage your mind.</p>
-            </div>
-        </div>
-
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-logo">Sook D</div>
-        <p class="copyright">&copy; 2026 Sook D. All Rights Reserved. Powered by Learndo Social Enterprise.</p>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        const data = {
-            th: {
-                navShops: "สุขชอป", navTaste: "สุขชิม", navExplore: "สุขสนุก",
-                heroSub: "สุขดี • บางกะเจ้า", heroMain: "โอเอซิสริมแม่น้ำ<br>ที่ซึ่งเวลาหยุดหมุน",
-                introTag: "3 มิติแห่งความสุขดี", introText: "สัมผัสประสบการณ์บางกะเจ้าผ่าน 3 มุมมองที่เราคัดสรรมาเพื่อคุณ",
-                title1: "สุขชอป", desc1: "คัดสรรงานคราฟต์เชิงนิเวศและผลิตภัณฑ์ชุมชนระดับพรีเมียม พร้อมระบบบันทึกห่วงโซ่อุปทานที่ยั่งยืน เปลี่ยนภูมิปัญญาท้องถิ่นให้เป็นความหรูหราที่จับต้องได้ในทุกวัน",
-                title2: "สุขชิม", desc2: "ผสานนวัตกรรมดิจิทัลเข้ากับตำรับอาหารดั้งเดิม ลิ้มรสเมนูมรดกทางวัฒนธรรมที่ปรุงอย่างแม่นยำ พร้อมความใส่ใจในสิ่งแวดล้อมและคาร์บอนต่ำจากวัตถุดิบชุมชน",
-                title3: "สุขสนุก", desc3: "เดินทางไปกับทริปท่องเที่ยวเชิงนิเวศที่ออกแบบมาเฉพาะตัว ค้นพบเส้นทางน้ำที่ซ่อนอยู่ กิจกรรมฝึกสมาธิด้วยเสียง และนวัตกรรมสีเขียวที่จะเติมเต็มจิตวิญญาณของคุณ"
-            },
-            en: {
-                navShops: "Sook Shops", navTaste: "Sook Taste", navExplore: "Sook Explore",
-                heroSub: "Sook D • Bang Krachao", heroMain: "The River Oasis<br>Where Time Stands Still",
-                introTag: "The Tri-Senses of Sook D", introText: "Experience Bang Krachao through three curated perspectives.",
-                title1: "Sook Shops", desc1: "Curating premium eco-crafts and community products with sustainable supply chain logging, turning local wisdom into tangible everyday luxury.",
-                title2: "Sook Taste", desc2: "Embracing the gastronomy digitization of traditional recipes. Savor precision-cooked heritage dishes sourced transparently from eco-friendly agriculture.",
-                title3: "Sook Explore", desc3: "Journey through customized local eco-tourism. Discover hidden waterways, sound meditation sessions, and green innovations designed to engage your mind."
-            }
-        };
-
-        function switchLang(lang) {
-            document.getElementById('btn-th').classList.toggle('active', lang === 'th');
-            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-            document.getElementById('nav-shops').innerText = data[lang].navShops;
-            document.getElementById('nav-taste').innerText = data[lang].navTaste;
-            document.getElementById('nav-explore').innerText = data[lang].navExplore;
-            document.getElementById('hero-sub').innerText = data[lang].heroSub;
-            document.getElementById('hero-main').innerHTML = data[lang].heroMain;
-            document.getElementById('intro-tag').innerText = data[lang].introTag;
-            document.getElementById('intro-text').innerText = data[lang].introText;
-            document.getElementById('card-title-1').innerText = data[lang].title1;
-            document.getElementById('card-desc-1').innerText = data[lang].desc1;
-            document.getElementById('card-title-2').innerText = data[lang].title2;
-            document.getElementById('card-desc-2').innerText = data[lang].desc2;
-            document.getElementById('card-title-3').innerText = data[lang].title3;
-            document.getElementById('card-desc-3').innerText = data[lang].desc3;
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            const hero = document.getElementById('hero-section');
-            if(hero) hero.classList.add('active');
-        });
-
-        window.addEventListener('scroll', () => {
-            const header = document.getElementById('main-header');
-            if (window.scrollY > 50) header.classList.add('scrolled');
-            else header.classList.remove('scrolled');
-        });
-    </script>
-</body>
-</html>
