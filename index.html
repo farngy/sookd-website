@@ -409,7 +409,7 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
-        padding: 0 40px 120px 40px;
+        padding: 0 40px 60px 40px;
         max-width: 1600px;
         margin: 0 auto;
       }
@@ -465,6 +465,136 @@
       .grid-card:hover .grid-description {
         opacity: 0.95;
         transform: translateY(0);
+      }
+
+      /* --- NEW: 4-Column Sanctuary Locations Grid --- */
+      .location-section-title {
+        text-align: center;
+        margin: 60px auto 30px auto;
+        padding: 0 20px;
+      }
+      .location-section-title h2 {
+        font-size: 32px;
+        color: #1a1c1b;
+      }
+      .location-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        padding: 0 40px 80px 40px;
+        max-width: 1600px;
+        margin: 0 auto;
+      }
+      .loc-card {
+        position: relative;
+        height: 380px;
+        overflow: hidden;
+        background-color: #000;
+        cursor: pointer;
+        border-radius: 2px;
+      }
+      .loc-card-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
+        filter: brightness(0.8);
+      }
+      .loc-card:hover .loc-card-img {
+        transform: scale(1.06);
+      }
+      .loc-card-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%);
+        color: #fff;
+      }
+      .loc-card-title {
+        font-family: "Playfair Display", "Sarabun", serif;
+        font-size: 20px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 4px;
+      }
+      .loc-card-sub {
+        font-size: 12px;
+        font-weight: 300;
+        opacity: 0.85;
+        letter-spacing: 1px;
+      }
+
+      /* --- NEW: Social Impact Dashboard --- */
+      .impact-section {
+        background-color: #f4f2eb;
+        border-top: 1px solid #e8e5dc;
+        border-bottom: 1px solid #e8e5dc;
+        padding: 100px 40px;
+      }
+      .impact-container {
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      .impact-header {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 60px auto;
+      }
+      .impact-header h2 {
+        font-size: 36px;
+        color: #2c302e;
+        margin-bottom: 15px;
+      }
+      .impact-header p {
+        font-size: 15px;
+        color: #8c92ac;
+        font-weight: 300;
+      }
+      .impact-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 25px;
+      }
+      .impact-card {
+        background-color: #fff;
+        border: 1px solid #e8e5dc;
+        padding: 40px 25px;
+        text-align: center;
+        border-radius: 4px;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .impact-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 30px rgba(0,0,0,0.03);
+      }
+      .impact-icon {
+        width: 45px;
+        height: 45px;
+        margin: 0 auto 20px auto;
+        opacity: 0.85;
+      }
+      .impact-number {
+        font-family: "Playfair Display", sans-serif;
+        font-size: 32px;
+        font-weight: 600;
+        color: #2c302e;
+        margin-bottom: 10px;
+      }
+      .impact-title {
+        font-size: 13px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #1a1c1b;
+        margin-bottom: 8px;
+        font-weight: 500;
+      }
+      .impact-desc {
+        font-size: 13px;
+        color: #707672;
+        font-weight: 300;
+        line-height: 1.5;
       }
 
       /* ปุ่มย้อนกลับสไตล์เรียบหรู */
@@ -883,9 +1013,9 @@
       }
       .route-info {
         padding: 30px;
+        flex: 1;
         display: flex;
         flex-direction: column;
-        flex: 1;
       }
       .route-tag {
         font-size: 11px;
@@ -909,14 +1039,6 @@
         margin-bottom: 20px;
         flex: 1;
       }
-      .route-meta {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-top: 1px solid #f5f4f0;
-        padding-top: 15px;
-        margin-top: 15px;
-      }
       .route-duration {
         font-size: 12px;
         font-weight: 500;
@@ -924,7 +1046,35 @@
         display: flex;
         align-items: center;
         gap: 5px;
+        margin-bottom: 15px;
       }
+      .route-action-box {
+        border-top: 1px solid #f5f4f0;
+        padding-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .route-price {
+        font-size: 15px;
+        font-weight: 600;
+        color: #2c302e;
+      }
+      .route-btn {
+        background-color: #2c302e;
+        color: #fcfbf9;
+        padding: 8px 16px;
+        font-size: 11px;
+        border: none;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: opacity 0.2s;
+      }
+      .route-btn:hover {
+        opacity: 0.9;
+      }
+
       .workshop-section {
         background-color: #f4f2eb;
         padding: 100px 20px;
@@ -1001,7 +1151,7 @@
       }
 
       /* ==========================================================================
-           🌍 SECTION 5: SOOK D NATIONAL DISCOVER VIEW (จุดเดียวที่คุณอยากแก้ไข)
+           🌍 SECTION 5: SOOK D NATIONAL DISCOVER VIEW
            ========================================================================== */
       .discover-banner {
         height: 55vh;
@@ -1366,7 +1516,9 @@
         .workshop-grid,
         .province-content-wrapper,
         .discover-more-grid,
-        .online-grid {
+        .online-grid,
+        .location-grid,
+        .impact-grid {
           grid-template-columns: 1fr;
         }
         .taste-row-img-box {
@@ -1446,7 +1598,7 @@
     </div>
 
     <!-- ==========================================================================
-         🏠 VIEW 1: HOMEPAGE VIEW (เวอร์ชันเต็ม 100% ตัวเดิมที่เคยใช้งานได้ดี)
+         🏠 VIEW 1: HOMEPAGE VIEW (เพิ่มส่วนสถานที่จัดกิจกรรม & สรุปข้อมูล Social Impact)
          ========================================================================== -->
     <div id="homepage-view" class="page-view">
       <section class="hero" id="hero-section">
@@ -1458,12 +1610,14 @@
           </h1>
         </div>
       </section>
+      
       <section class="intro">
         <span class="section-tag" id="intro-tag">The Tri-Senses of Sook D</span>
         <h2 id="intro-text">
           Experience Bang Krachao through three curated perspectives.
         </h2>
       </section>
+      
       <section class="tri-grid">
         <div class="grid-card" onclick="navigate('shop')">
           <img
@@ -1505,6 +1659,90 @@
               waterways, sound meditation sessions, and green innovations
               designed to engage your mind.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW SECTION: 4 Sanctuary Locations Grid -->
+      <div class="location-section-title">
+        <span class="section-tag" id="loc-sec-tag">Our Active Sanctuaries</span>
+        <h2 id="loc-sec-heading">Provinces & Communities We Empower</h2>
+      </div>
+      <section class="location-grid">
+        <div class="loc-card" onclick="activeProv='samut'; navigate('discover');">
+          <img src="https://images.unsplash.com/photo-1473116763269-255ea10e852d?auto=format&fit=crop&w=500&q=80" class="loc-card-img" />
+          <div class="loc-card-overlay">
+            <h3 class="loc-card-title" id="home-p-samut">Samut Prakan</h3>
+            <p class="loc-card-sub" id="home-p-sub-samut">บางกะเจ้า (Bang Krachao)</p>
+          </div>
+        </div>
+        <div class="loc-card" onclick="activeProv='nakhon'; navigate('discover');">
+          <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=500&q=80" class="loc-card-img" />
+          <div class="loc-card-overlay">
+            <h3 class="loc-card-title" id="home-p-nakhon">Nakhon Pathom</h3>
+            <p class="loc-card-sub" id="home-p-sub-nakhon">สนามจันทร์ (Sanam Chandra)</p>
+          </div>
+        </div>
+        <div class="loc-card" onclick="activeProv='ratchaburi'; navigate('discover');">
+          <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=500&q=80" class="loc-card-img" />
+          <div class="loc-card-overlay">
+            <h3 class="loc-card-title" id="home-p-ratchaburi">Ratchaburi</h3>
+            <p class="loc-card-sub" id="home-p-sub-ratchaburi">สวนผึ้ง (Suan Phueng)</p>
+          </div>
+        </div>
+        <div class="loc-card" onclick="activeProv='nakhonsi'; navigate('discover');">
+          <img src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=500&q=80" class="loc-card-img" />
+          <div class="loc-card-overlay">
+            <h3 class="loc-card-title" id="home-p-nakhonsi">Nakhon Si</h3>
+            <p class="loc-card-sub" id="home-p-sub-nakhonsi">คีรีวง (Kiriwong Village)</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- NEW SECTION: Social Impact Dashboard (5 วัดผล) -->
+      <section class="impact-section">
+        <div class="impact-container">
+          <div class="impact-header">
+            <span class="section-tag" id="imp-sec-tag">Measurable Social Impact</span>
+            <h2 id="imp-sec-heading">Our Sustainable Framework Results</h2>
+            <p id="imp-sec-desc">Driven by Learndo Social Enterprise, we turn luxury community tourism into transparent ecological value.</p>
+          </div>
+          <div class="impact-grid">
+            <!-- 1. Carbon Reduction -->
+            <div class="impact-card">
+              <img src="https://img.icons8.com/color/96/co2.png" class="impact-icon" />
+              <div class="impact-number">-12.4 Tons</div>
+              <h4 class="impact-title" id="imp-t1">Carbon Footprint</h4>
+              <p class="impact-desc" id="imp-d1">Greenhouse gas emission reduction across all smart digital routes and low-carbon trips.</p>
+            </div>
+            <!-- 2. Waste Diversion -->
+            <div class="impact-card">
+              <img src="https://img.icons8.com/color/96/garbage-truck.png" class="impact-icon" />
+              <div class="impact-number">3,850 Kgs</div>
+              <h4 class="impact-title" id="imp-t2">Waste Diverted</h4>
+              <p class="impact-desc" id="imp-d2">Organic and packaging waste successfully logged via digital asset tracking and recycled completely.</p>
+            </div>
+            <!-- 3. Community Income -->
+            <div class="impact-card">
+              <img src="https://img.icons8.com/color/96/thai-baht.png" class="impact-icon" />
+              <div class="impact-number">+420K Baht</div>
+              <h4 class="impact-title" id="imp-t3">Local Revenue</h4>
+              <p class="impact-desc" id="imp-d3">Direct supplementary income distributed safely to local organic farmers and craft artisans.</p>
+            </div>
+            <!-- 4. Reforestation -->
+            <div class="impact-card">
+              <img src="https://img.icons8.com/color/96/sprout.png" class="impact-icon" />
+              <div class="impact-number">1,500 Trees</div>
+              <h4 class="impact-title" id="imp-t4">Trees Planted</h4>
+              <p class="impact-desc" id="imp-d4">Native mangrove and alluvial soil orchard saplings actively cultivated to restore regional biodiversity.</p>
+            </div>
+            <!-- 5. Youth Education -->
+            <div class="impact-card">
+              <img src="https://img.icons8.com/color/96/diploma.png" class="impact-icon" />
+              <div class="impact-number">850 People</div>
+              <h4 class="impact-title" id="imp-t5">Empowered Minds</h4>
+              <p class="impact-desc" id="imp-d5">Local youths and community entrepreneurs upskilled in digital gastronomy and ecological tech tools.</p>
+            </div>
           </div>
         </div>
       </section>
@@ -1858,7 +2096,7 @@
     </div>
 
     <!-- ==========================================================================
-         🎉 VIEW 4: SOOK EXPLORE VIEW (อัปเดตระบบจองทริป 2,900 บาท แยกภาษาละเอียดตามบรีฟ)
+         🎉 VIEW 4: SOOK EXPLORE VIEW (ทริปทั้ง 3 ราคาเท่ากันที่ 2,900 บาทตามบรีฟ)
          ========================================================================== -->
     <div id="explore-view" class="page-view">
       <section class="explore-banner">
@@ -2106,7 +2344,7 @@
     </div>
 
     <!-- ==========================================================================
-         🌍 SECTION 5: SOOK D NATIONAL DISCOVER VIEW (จุดปรับปรุงบั๊ก UI/UX สมบูรณ์แบบ)
+         🌍 SECTION 5: SOOK D NATIONAL DISCOVER VIEW
          ========================================================================== -->
     <div id="discover-view" class="page-view">
       <section class="discover-banner">
@@ -2720,6 +2958,32 @@
           desc3:
             "เดินทางไปกับทริปท่องเที่ยวเชิงนิเวศที่ออกแบบมาเฉพาะตัว ค้นพบเส้นทางน้ำที่ซ่อนอยู่ กิจกรรมฝึกสมาธิด้วยเสียง และนวัตกรรมสีเขียวที่จะเติมเต็มจิตวิญญาณของคุณ",
 
+          // NEW Homepage Sections TH
+          locSecTag: "พื้นที่กิจกรรมและแซงชัวรีของเรา",
+          locSecHeading: "จังหวัดและชุมชนที่เรามุ่งขับเคลื่อนพัฒนา",
+          homePSamut: "สมุทรปราการ",
+          homePSubSamut: "บางกะเจ้า (Bang Krachao)",
+          homePNakhon: "นครปฐม",
+          homePSubNakhon: "สนามจันทร์ (Sanam Chandra)",
+          homePRatchaburi: "ราชบุรี",
+          homePSubRatchaburi: "สวนผึ้ง (Suan Phueng)",
+          homePNakhonsi: "นครศรีธรรมราช",
+          homePSubNakhonsi: "คีรีวง (Kiriwong Village)",
+          
+          impSecTag: "ผลลัพธ์การวัดผลกระทบทางสังคม (Social Impact)",
+          impSecHeading: "ผลการดำเนินงานด้านความยั่งยืนที่เป็นรูปธรรม",
+          impSecDesc: "ขับเคลื่อนโดย Learndo Social Enterprise เพื่อเปลี่ยนทริปท่องเที่ยวระดับพรีเมียมให้เป็นคุณค่าที่โปร่งใสคืนสู่ระบบนิเวศ",
+          impT1: "ลดก๊าซเรือนกระจก",
+          impD1: "ลดการปล่อยก๊าซเรือนกระจกและคาร์บอนฟุตพริ้นท์ผ่านเส้นทางท่องเที่ยวดิจิทัลคาร์บอนต่ำ",
+          impT2: "ลดปริมาณขยะ",
+          impD2: "ขยะอินทรีย์และบรรจุภัณฑ์ถูกบันทึกผ่านระบบ waste logging และนำกลับเข้าสู่กระบวนการรีไซเคิล 100%",
+          impT3: "สร้างรายได้ชุมชน",
+          impD3: "กระจายรายได้เสริมโดยตรงและปลอดภัยส่งถึงมือกลุ่มเกษตรกรอินทรีย์และช่างฝีมือหัตถกรรมท้องถิ่น",
+          impT4: "ปลูกต้นไม้คืนผืนป่า",
+          impD4: "ปลูกและดูแลต้นไม้ท้องถิ่น ต้นจาก และไม้ชายเลนเพื่อช่วยรักษาความหลากหลายทางชีวภาพ",
+          impT5: "เสริมความรู้เยาวชน",
+          impD5: "เสริมทักษะอาชีพยุคดิจิทัล ด้านอาหารปลอดภัย และการท่องเที่ยวเชิงนิเวศให้เด็ก เยาวชน และคนในพื้นที่",
+
           // Discover Page TH
           discMainTitle: "ค้นพบจุดหมายความสุขดีทั่วไทย",
           discMainSub: "สำรวจพื้นที่ท่องเที่ยวชุมชนระดับพรีเมียมเชิงนิเวศ",
@@ -2769,7 +3033,7 @@
           vDescE2:
             "รากต้นมะม่วงช่วยยึดเกาะโครงสร้างหน้าดิน ลดการกัดเซาะพังทลายริมตลิ่งตามคลองธรรมชาติ",
 
-          // Sook Explore TH (อัปเดตแยกภาษาในส่วน Digital-Guided Journeys)
+          // Sook Explore TH
           expBannerTitle: "การผจญภัยอย่างมีสติ ณ ผืนป่าบางกะเจ้า",
           expBannerSub:
             "ทริปเส้นทางท่องเที่ยวเต็มวันและกิจกรรมเวิร์กชอปงานคราฟต์",
@@ -2835,6 +3099,32 @@
           title3: "Sook Explore",
           desc3:
             "Journey through customized local eco-tourism. Discover hidden waterways, sound meditation sessions, and green innovations designed to engage your mind.",
+
+          // NEW Homepage Sections EN
+          locSecTag: "Our Active Sanctuaries",
+          locSecHeading: "Provinces & Communities We Empower",
+          homePSamut: "Samut Prakan",
+          homePSubSamut: "บางกะเจ้า (Bang Krachao)",
+          homePNakhon: "Nakhon Pathom",
+          homePSubNakhon: "สนามจันทร์ (Sanam Chandra)",
+          homePRatchaburi: "Ratchaburi",
+          homePSubRatchaburi: "สวนผึ้ง (Suan Phueng)",
+          homePNakhonsi: "Nakhon Si",
+          homePSubNakhonsi: "คีรีวง (Kiriwong Village)",
+          
+          impSecTag: "Measurable Social Impact",
+          impSecHeading: "Our Sustainable Framework Results",
+          impSecDesc: "Driven by Learndo Social Enterprise, we turn luxury community tourism into transparent ecological value.",
+          impT1: "Carbon Footprint",
+          impD1: "Greenhouse gas emission reduction across all smart digital routes and low-carbon trips.",
+          impT2: "Waste Diverted",
+          impD2: "Organic and packaging waste successfully logged via digital asset tracking and recycled completely.",
+          impT3: "Local Revenue",
+          impD3: "Direct supplementary income distributed safely to local organic farmers and craft artisans.",
+          impT4: "Trees Planted",
+          impD4: "Native mangrove and alluvial soil orchard saplings actively cultivated to restore regional biodiversity.",
+          impT5: "Empowered Minds",
+          impD5: "Local youths and community entrepreneurs upskilled in digital gastronomy and ecological tech tools.",
 
           // Discover Page EN
           discMainTitle: "Discover Sook D Sanctuaries",
@@ -2955,6 +3245,26 @@
         document.getElementById("card-title-3").innerText = data[lang].title3;
         document.getElementById("card-desc-3").innerText = data[lang].desc3;
 
+        // แปลระบบที่เพิ่มใหม่หน้าแรก
+        if(document.getElementById("loc-sec-tag")) document.getElementById("loc-sec-tag").innerText = data[lang].locSecTag;
+        if(document.getElementById("loc-sec-heading")) document.getElementById("loc-sec-heading").innerText = data[lang].locSecHeading;
+        if(document.getElementById("home-p-samut")) document.getElementById("home-p-samut").innerText = data[lang].homePSamut;
+        if(document.getElementById("home-p-sub-samut")) document.getElementById("home-p-sub-samut").innerText = data[lang].homePSubSamut;
+        if(document.getElementById("home-p-nakhon")) document.getElementById("home-p-nakhon").innerText = data[lang].homePNakhon;
+        if(document.getElementById("home-p-sub-nakhon")) document.getElementById("home-p-sub-nakhon").innerText = data[lang].homePSubNakhon;
+        if(document.getElementById("home-p-ratchaburi")) document.getElementById("home-p-ratchaburi").innerText = data[lang].homePRatchaburi;
+        if(document.getElementById("home-p-sub-ratchaburi")) document.getElementById("home-p-sub-ratchaburi").innerText = data[lang].homePSubRatchaburi;
+        if(document.getElementById("home-p-nakhonsi")) document.getElementById("home-p-nakhonsi").innerText = data[lang].homePNakhonsi;
+        if(document.getElementById("home-p-sub-nakhonsi")) document.getElementById("home-p-sub-nakhonsi").innerText = data[lang].homePSubNakhonsi;
+        
+        if(document.getElementById("imp-sec-tag")) document.getElementById("imp-sec-tag").innerText = data[lang].impSecTag;
+        if(document.getElementById("imp-sec-heading")) document.getElementById("imp-sec-heading").innerText = data[lang].impSecHeading;
+        if(document.getElementById("imp-sec-desc")) document.getElementById("imp-sec-desc").innerText = data[lang].impSecDesc;
+        for (let i = 1; i <= 5; i++) {
+          if(document.getElementById(`imp-t${i}`)) document.getElementById(`imp-t${i}`).innerText = data[lang][`impT${i}`];
+          if(document.getElementById(`imp-d${i}`)) document.getElementById(`imp-d${i}`).innerText = data[lang][`impD${i}`];
+        }
+
         // หน้า Discover
         if(document.getElementById("disc-main-title")) document.getElementById("disc-main-title").innerText = data[lang].discMainTitle;
         if(document.getElementById("disc-main-sub")) document.getElementById("disc-main-sub").innerText = data[lang].discMainSub;
@@ -2988,7 +3298,7 @@
         if(document.getElementById("taste-banner-sub")) document.getElementById("taste-banner-sub").innerText = data[lang].tasteBannerSub;
         if(document.getElementById("taste-back-btn")) document.getElementById("taste-back-btn").innerText = data[lang].tasteBackBtn;
         
-        // หน้า Sook Explore (Digital Journeys & Workshops Translation)
+        // หน้า Sook Explore
         if(document.getElementById("exp-banner-title")) document.getElementById("exp-banner-title").innerText = data[lang].expBannerTitle;
         if(document.getElementById("exp-banner-sub")) document.getElementById("exp-banner-sub").innerText = data[lang].expBannerSub;
         if(document.getElementById("exp-back-btn")) document.getElementById("exp-back-btn").innerText = data[lang].expBackBtn;
