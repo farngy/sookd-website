@@ -9,13 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Sarabun:wght@300;400;500&display=swap" rel="stylesheet">
     
     <style>
-        /* --- Reset & Base Styles --- */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Inter', 'Sarabun', sans-serif;
             background-color: #fcfbf9;
@@ -23,128 +17,36 @@
             line-height: 1.6;
             overflow-x: hidden;
         }
+        h1, h2, h3 { font-family: 'Playfair Display', 'Sarabun', serif; font-weight: 400; letter-spacing: 1px; }
+        a { text-decoration: none; color: inherit; }
 
-        h1, h2, h3 {
-            font-family: 'Playfair Display', 'Sarabun', serif;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        /* --- Luxury Navigation Bar --- */
         header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 30px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
+            position: fixed; top: 0; left: 0; width: 100%; padding: 30px 50px;
+            display: flex; justify-content: space-between; align-items: center; z-index: 1000;
             transition: all 0.4s ease;
         }
-
         header.scrolled {
-            padding: 15px 50px;
-            background-color: rgba(252, 251, 249, 0.95);
+            padding: 15px 50px; background-color: rgba(252, 251, 249, 0.95);
             box-shadow: 0 2px 20px rgba(0,0,0,0.05);
         }
+        .logo { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: #fff; }
+        header.scrolled .logo { color: #2c302e; }
+        .nav-container { display: flex; align-items: center; gap: 40px; }
+        .nav-links { display: flex; list-style: none; gap: 35px; }
+        .nav-links a { font-size: 13px; text-transform: uppercase; letter-spacing: 2px; color: #fff; }
+        header.scrolled .nav-links a { color: #2c302e; }
+        
+        .lang-switcher { display: flex; gap: 8px; font-size: 12px; letter-spacing: 1px; color: rgba(255, 255, 255, 0.6); font-weight: 500; }
+        header.scrolled .lang-switcher { color: rgba(44, 48, 46, 0.5); }
+        .lang-btn { cursor: pointer; text-transform: uppercase; }
+        .lang-btn.active { color: #fff; font-weight: 600; border-bottom: 1px solid #fff; }
+        header.scrolled .lang-btn.active { color: #2c302e; border-bottom-color: #2c302e; }
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 600;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            color: #fff;
-            transition: color 0.3s;
-        }
-
-        header.scrolled .logo {
-            color: #2c302e;
-        }
-
-        .nav-container {
-            display: flex;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 35px;
-        }
-
-        .nav-links a {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #fff;
-            transition: opacity 0.3s;
-        }
-
-        header.scrolled .nav-links a {
-            color: #2c302e;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.6;
-        }
-
-        .lang-switcher {
-            display: flex;
-            gap: 8px;
-            font-size: 12px;
-            letter-spacing: 1px;
-            color: rgba(255, 255, 255, 0.6);
-            font-weight: 500;
-        }
-
-        header.scrolled .lang-switcher {
-            color: rgba(44, 48, 46, 0.5);
-        }
-
-        .lang-btn {
-            cursor: pointer;
-            text-transform: uppercase;
-        }
-
-        .lang-btn.active {
-            color: #fff;
-            font-weight: 600;
-            border-bottom: 1px solid #fff;
-        }
-
-        header.scrolled .lang-btn.active {
-            color: #2c302e;
-            border-bottom-color: #2c302e;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
-            height: 100vh;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-        }
-
-        /* ดึงภาพ hero.png ที่คุณอัปโหลดโดยตรง ไม่โดนสคริปต์ทับแล้ว */
+        .hero { height: 100vh; position: relative; overflow: hidden; display: flex; justify-content: center; align-items: center; text-align: center; color: #fff; }
+        
+        /* ดึงภาพ hero.png ที่อยู่ในโฟลเดอร์เดียวกันมาแสดงผล */
         .hero-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background-image: url('hero.png');
             background-size: cover;
             background-position: center;
@@ -153,167 +55,35 @@
             transform: scale(1.05);
             z-index: 1;
         }
+        .hero.active .hero-bg { transform: scale(1); }
+        .hero-content { position: relative; z-index: 10; max-width: 900px; padding: 0 20px; opacity: 0; transform: translateY(30px); transition: all 1.5s ease 0.5s; }
+        .hero.active .hero-content { opacity: 1; transform: translateY(0); }
+        .hero-subtitle { font-size: 13px; text-transform: uppercase; letter-spacing: 6px; margin-bottom: 20px; font-weight: 300; }
+        .hero-title { font-size: 52px; line-height: 1.3; margin-bottom: 30px; font-style: italic; }
 
-        .hero.active .hero-bg {
-            transform: scale(1);
-        }
+        .intro { padding: 120px 20px 60px 20px; text-align: center; max-width: 900px; margin: 0 auto; }
+        .section-tag { font-size: 11px; text-transform: uppercase; letter-spacing: 4px; color: #8c92ac; margin-bottom: 20px; display: block; }
+        .intro h2 { font-size: 36px; color: #1a1c1b; line-height: 1.4; }
 
-        .hero-content {
-            position: relative;
-            z-index: 10;
-            max-width: 900px;
-            padding: 0 20px;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 1.5s ease 0.5s;
-        }
+        .tri-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 0 40px 120px 40px; max-width: 1600px; margin: 0 auto; }
+        .grid-card { position: relative; height: 650px; overflow: hidden; background-color: #000; }
+        .grid-img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.8s cubic-bezier(0.25, 1, 0.5, 1); filter: brightness(0.85); }
+        .grid-card:hover .grid-img { transform: scale(1.05); }
+        .grid-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px; background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%); color: #fff; display: flex; flex-direction: column; justify-content: flex-end; height: 60%; }
+        .grid-title { font-family: 'Playfair Display', 'Sarabun', serif; font-size: 26px; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 15px; }
+        .grid-description { font-size: 14px; font-weight: 300; line-height: 1.6; opacity: 0; transform: translateY(20px); transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
+        .grid-card:hover .grid-description { opacity: 0.95; transform: translateY(0); }
 
-        .hero.active .hero-content {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .hero-subtitle {
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-
-        .hero-title {
-            font-size: 52px;
-            line-height: 1.3;
-            margin-bottom: 30px;
-            font-style: italic;
-        }
-
-        /* --- Intro Section --- */
-        .intro {
-            padding: 120px 20px 60px 20px;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .section-tag {
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            color: #8c92ac;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .intro h2 {
-            font-size: 36px;
-            color: #1a1c1b;
-            line-height: 1.4;
-        }
-
-        /* --- 3-Column Luxury Grid --- */
-        .tri-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            padding: 0 40px 120px 40px;
-            max-width: 1600px;
-            margin: 0 auto;
-        }
-
-        .grid-card {
-            position: relative;
-            height: 650px;
-            overflow: hidden;
-            background-color: #000;
-        }
-
-        .grid-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 1.8s cubic-bezier(0.25, 1, 0.5, 1);
-            filter: brightness(0.85);
-        }
-
-        .grid-card:hover .grid-img {
-            transform: scale(1.05);
-        }
-
-        .grid-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            padding: 40px;
-            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
-            color: #fff;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            height: 60%;
-        }
-
-        .grid-title {
-            font-family: 'Playfair Display', 'Sarabun', serif;
-            font-size: 26px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-        }
-
-        .grid-description {
-            font-size: 14px;
-            font-weight: 300;
-            line-height: 1.6;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
-        }
-
-        .grid-card:hover .grid-description {
-            opacity: 0.95;
-            transform: translateY(0);
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: #2c302e;
-            color: #fcfbf9;
-            padding: 80px 20px 40px 20px;
-            text-align: center;
-        }
-
-        .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 26px;
-            letter-spacing: 5px;
-            margin-bottom: 40px;
-        }
-
-        .copyright {
-            font-size: 11px;
-            opacity: 0.4;
-        }
+        footer { background-color: #2c302e; color: #fcfbf9; padding: 80px 20px 40px 20px; text-align: center; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 26px; letter-spacing: 5px; margin-bottom: 40px; }
+        .copyright { font-size: 11px; opacity: 0.4; }
 
         @media (max-width: 1024px) {
-            .tri-grid {
-                grid-template-columns: 1fr;
-                padding: 0 20px 80px 20px;
-            }
-            .grid-card {
-                height: 500px;
-            }
-            .grid-description {
-                opacity: 0.9;
-                transform: translateY(0);
-            }
-            header {
-                padding: 20px;
-            }
-            .nav-links {
-                display: none;
-            }
+            .tri-grid { grid-template-columns: 1fr; padding: 0 20px 80px 20px; }
+            .grid-card { height: 500px; }
+            .grid-description { opacity: 0.9; transform: translateY(0); }
+            header { padding: 20px; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -349,9 +119,8 @@
     </section>
 
     <section class="tri-grid">
-        
         <div class="grid-card" id="shops">
-            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" alt="Sook Shops" class="grid-img">
+            <img src="https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80" alt="Sook Shops" class="grid-img">
             <div class="grid-overlay">
                 <h3 class="grid-title" id="card-title-1">Sook Shops</h3>
                 <p class="grid-description" id="card-desc-1">Curating premium eco-crafts and community products with sustainable supply chain logging, turning local wisdom into tangible everyday luxury.</p>
@@ -373,7 +142,6 @@
                 <p class="grid-description">Journey through customized local eco-tourism. Discover hidden waterways, sound meditation sessions, and green innovations designed to engage your mind.</p>
             </div>
         </div>
-
     </section>
 
     <footer>
