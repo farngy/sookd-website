@@ -104,24 +104,29 @@
         .buy-btn { background-color: #2c302e; color: #fcfbf9; padding: 8px 18px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; border: none; cursor: pointer; }
 
         /* ==========================================================================
-           🍳 SECTION: SOOK TASTE STORYTELLING VIEW (หน้าใหม่ที่คุณขอเพิ่ม)
+           🍳 SECTION: SOOK TASTE LUXURY INTERACTIVE VIEW (ถอดดีไซน์ Bawah Reserve Taste)
            ========================================================================== */
-        .taste-banner { height: 50vh; position: relative; display: flex; justify-content: center; align-items: center; text-align: center; color: #fff; background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; }
-        .taste-banner::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); }
+        .taste-banner { height: 55vh; position: relative; display: flex; justify-content: center; align-items: center; text-align: center; color: #fff; background-image: url('https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center; }
+        .taste-banner::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.45); }
         
-        /* สไตล์เนื้อหาส่วนเรื่องเล่าวัตถุดิบ (Ingredient Grid) */
-        .ingredient-section { max-width: 1200px; margin: 60px auto 100px auto; padding: 0 20px; }
-        .ingredient-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 40px; }
-        .ingredient-card { background: #fff; border: 1px solid #f0eee9; padding: 35px; border-radius: 4px; display: flex; flex-direction: column; gap: 15px; transition: box-shadow 0.3s; }
-        .ingredient-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.04); }
-        .ing-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f0eee9; padding-bottom: 15px; }
-        .ing-title { font-size: 24px; font-family: 'Playfair Display', 'Sarabun', serif; color: #2c302e; font-weight: 500; }
-        .ing-eco-tag { font-size: 11px; background-color: #edf0ee; color: #4a5c50; padding: 3px 8px; border-radius: 2px; text-transform: uppercase; letter-spacing: 1px; font-weight: 500; }
+        .taste-intro-text { max-width: 800px; margin: 60px auto 40px auto; text-align: center; padding: 0 20px; }
+        .taste-intro-text h2 { font-size: 34px; color: #1a1c1b; margin-bottom: 20px; line-height: 1.4; }
+
+        /* โครงสร้างรูปภาพสลับฝั่งแนวนอน (Alternating Asymmetric Row แบบเว็บบอร์โดซ์/Bawah Taste) */
+        .taste-row { display: grid; grid-template-columns: 1fr 1fr; align-items: center; background-color: #fff; border-bottom: 1px solid #f2f0ea; }
+        .taste-row-img-box { height: 600px; overflow: hidden; position: relative; }
+        .taste-row-img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.5s ease; }
+        .taste-row:hover .taste-row-img { transform: scale(1.03); }
         
-        /* 3 มิติแห่งคุณค่า (ดีต่อคนกิน ดีต่อชุมชน ดีต่อสิ่งแวดล้อม) */
-        .triple-value { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 10px; font-size: 13px; }
-        .value-box h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 1px; color: #8c92ac; margin-bottom: 5px; }
-        .value-box p { color: #606662; font-weight: 300; line-height: 1.5; }
+        .taste-row-content { padding: 80px 100px; display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+        .taste-row-title-container { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 1px solid #e2e0db; padding-bottom: 15px; }
+        .taste-row-title { font-family: 'Playfair Display', 'Sarabun', serif; font-size: 28px; color: #2c302e; font-weight: 500; }
+        .taste-row-badge { font-size: 11px; background-color: #edf0ee; color: #4a5c50; padding: 4px 10px; border-radius: 2px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
+        
+        /* รายละเอียด 3 มิติเชิงนิเวศย่อย ๆ ด้านใน */
+        .taste-value-stack { display: flex; flex-direction: column; gap: 18px; margin-top: 10px; }
+        .taste-value-item h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: #8c92ac; margin-bottom: 4px; font-weight: 500; }
+        .taste-value-item p { font-size: 14px; color: #5a605c; font-weight: 300; line-height: 1.6; }
 
         /* ส่วนฟอร์มจองล่วงหน้า Farm-to-Table */
         .booking-section { background-color: #2c302e; color: #fcfbf9; padding: 100px 20px; text-align: center; }
@@ -138,10 +143,13 @@
         .footer-logo { font-family: 'Playfair Display', serif; font-size: 26px; letter-spacing: 5px; margin-bottom: 40px; }
         .copyright { font-size: 11px; opacity: 0.4; }
 
+        @media (max-width: 1200px) {
+            .taste-row-content { padding: 40px 50px; }
+        }
         @media (max-width: 1024px) {
-            .tri-grid, .product-grid, .ingredient-grid { grid-template-columns: 1fr; padding: 0 20px; }
+            .tri-grid, .product-grid, .taste-row { grid-template-columns: 1fr; }
+            .taste-row-img-box { height: 400px; }
             .grid-card { height: 500px; }
-            .triple-value { grid-template-columns: 1fr; gap: 15px; }
             header { padding: 20px; }
             .nav-links { display: none; }
         }
@@ -257,7 +265,7 @@
     </div>
 
     <!-- ==========================================================================
-         🍳 VIEW 3: SOOK TASTE VIEW (เรื่องเล่าวัตถุดิบ & จอง Farm-to-Table)
+         🍳 VIEW 3: SOOK TASTE LUXURY INTERACTIVE VIEW (แกะดีไซน์จาก Bawah Reserve Taste)
          ========================================================================== -->
     <div id="taste-view" class="page-view">
         <section class="taste-banner">
@@ -271,69 +279,89 @@
             <span class="global-back-btn" onclick="navigate('home')" id="taste-back-btn">← Back to Home</span>
         </div>
 
-        <!-- เซกชันเรื่องเล่าและประโยชน์ 3 มิติ -->
-        <section class="ingredient-section">
-            <div style="text-align: center; max-width: 700px; margin: 0 auto 50px auto;">
-                <span class="section-tag" id="ing-section-tag">Ecology on a Plate</span>
-                <h2 style="font-size: 32px; margin-bottom: 15px;" id="ing-section-heading">Every Ingredient Tells a Story</h2>
-            </div>
+        <div class="taste-intro-text">
+            <span class="section-tag" id="ing-section-tag">Ecology on a Plate</span>
+            <h2 id="ing-section-heading">Every Ingredient Tells a Story</h2>
+        </div>
 
-            <div class="ingredient-grid">
-                <!-- วัตถุดิบที่ 1: น้ำผึ้งชันโรง -->
-                <div class="ingredient-card">
-                    <div class="ing-header">
-                        <h3 class="ing-title" id="ing-title-1">Stingless Bee Honey (น้ำผึ้งชันโรง)</h3>
-                        <span class="ing-eco-tag" id="ing-eco-1">Pollinator Ally</span>
-                    </div>
-                    <div class="triple-value">
-                        <div class="value-box"><h4 id="v-human">ดีต่อคนกิน</h4><p id="v-desc-h1">สารต้านอนุมูลอิสระสูงกว่าน้ำผึ้งทั่วไป บำรุงสมองและเสริมภูมิคุ้มกัน</p></div>
-                        <div class="value-box"><h4 id="v-community">ดีต่อชุมชน</h4><p id="v-desc-c1">สร้างรายได้เสริมที่ยั่งยืนให้แก่เกษตรกรในคุ้งบางกะเจ้า</p></div>
-                        <div class="value-box"><h4 id="v-env">ดีต่อสิ่งแวดล้อม</h4><p id="v-desc-e1">ชันโรงช่วยผสมเกสรพืชพรรณ อนุรักษ์ความหลากหลายทางชีวภาพของป่าไม้</p></div>
-                    </div>
+        <!-- เซกชันเรื่องเล่าและภาพวัตถุดิบแนวนอนสลับฝั่ง (Asymmetric Alternating Layout) -->
+        <section class="taste-story-container">
+            
+            <!-- วัตถุดิบที่ 1: น้ำผึ้งชันโรง (รูปชันโรงตอมเกสร/น้ำผึ้งฉ่ำ ๆ หรูหรา) -->
+            <div class="taste-row">
+                <div class="taste-row-img-box">
+                    <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=1000&q=80" class="taste-row-img">
                 </div>
-
-                <!-- วัตถุดิบที่ 2: มะม่วงน้ำดอกไม้บางกะเจ้า -->
-                <div class="ingredient-card">
-                    <div class="ing-header">
-                        <h3 class="ing-title" id="ing-title-2">Nam Dok Mai Mango (มะม่วงน้ำดอกไม้)</h3>
-                        <span class="ing-eco-tag" id="ing-eco-2">Alluvial Soil</span>
+                <div class="taste-row-content">
+                    <div class="taste-row-title-container">
+                        <h3 class="taste-row-title" id="ing-title-1">Stingless Bee Honey (น้ำผึ้งชันโรง)</h3>
+                        <span class="taste-row-badge" id="ing-eco-1">Pollinator Ally</span>
                     </div>
-                    <div class="triple-value">
-                        <div class="value-box"><h4>ดีต่อคนกิน</h4><p id="v-desc-h2">วิตามินซีและเบต้าแคโรทีนสูง ช่วยบำรุงสายตาและระบบย่อยอาหาร</p></div>
-                        <div class="value-box"><h4>ดีต่อชุมชน</h4><p id="v-desc-c2">สืบทอดสวนผลไม้ยกร่องโบราณ อัตลักษณ์เกษตรกรรมของชุมชน</p></div>
-                        <div class="value-box"><h4>ดีต่อสิ่งแวดล้อม</h4><p id="v-desc-e2">รากมะม่วงช่วยยึดเกาะหน้าดิน ต้านการกัดเซาะริมตลิ่งตามธรรมชาติ</p></div>
-                    </div>
-                </div>
-
-                <!-- วัตถุดิบที่ 3: ลูกพิลังกาสา -->
-                <div class="ingredient-card">
-                    <div class="ing-header">
-                        <h3 class="ing-title" id="ing-title-3">Pilangkasa Berry (ลูกพิลังกาสา)</h3>
-                        <span class="ing-eco-tag" id="ing-eco-3">Native Herbal</span>
-                    </div>
-                    <div class="triple-value">
-                        <div class="value-box"><h4>ดีต่อคนกิน</h4><p id="v-desc-h3">สมุนไพรโบราณ ผลมีสารแอนโทไซยานินเข้มข้น บำรุงโลหิตและหัวใจ</p></div>
-                        <div class="value-box"><h4>ดีต่อชุมชน</h4><p id="v-desc-c3">ฟื้นฟูการใช้พืชสมุนไพรรุ่นเก่า นำมาแปรรูปเพิ่มมูลค่าเชิงสุขภาพ</p></div>
-                        <div class="value-box"><h4>ดีต่อสิ่งแวดล้อม</h4><p id="v-desc-e3">เติบโตได้ดีในป่าชายเลน เป็นแหล่งอาหารสำคัญของนกและสัตว์ท้องถิ่น</p></div>
-                    </div>
-                </div>
-
-                <!-- วัตถุดิบที่ 4: ต้นจาก -->
-                <div class="ingredient-card">
-                    <div class="ing-header">
-                        <h3 class="ing-title" id="ing-title-4">Nipa Palm (ต้นจาก)</h3>
-                        <span class="ing-eco-tag" id="ing-eco-4">Water Filter</span>
-                    </div>
-                    <div class="triple-value">
-                        <div class="value-box"><h4>ดีต่อคนกิน</h4><p id="v-desc-h4">น้ำตาลจากมีดัชนีน้ำตาลต่ำ (Low GI) เหมาะสำหรับผู้ควบคุมน้ำตาล</p></div>
-                        <div class="value-box"><h4>ดีต่อชุมชน</h4><p id="v-desc-c4">สร้างงานผ่านหัตถกรรมใบจาก และขนมพื้นบ้านอัตลักษณ์ริมน้ำ</p></div>
-                        <div class="value-box"><h4>ดีต่อสิ่งแวดล้อม</h4><p id="v-desc-e4">ระบบรากหนาแน่นช่วยกรองน้ำเสีย บำบัดน้ำ และป้องกันตลิ่งพัง</p></div>
+                    <div class="taste-value-stack">
+                        <div class="taste-value-item"><h4 class="v-h-lbl">ดีต่อคนกิน</h4><p id="v-desc-h1">สารต้านอนุมูลอิสระสูงกว่าน้ำผึ้งทั่วไป บำรุงสมองและเสริมภูมิคุ้มกันระดับลึก</p></div>
+                        <div class="taste-value-item"><h4 class="v-c-lbl">ดีต่อชุมชน</h4><p id="v-desc-c1">สร้างรายได้เสริมที่เป็นกอบเป็นกำให้เกษตรกรสวนอินทรีย์รอบคุ้งบางกะเจ้า</p></div>
+                        <div class="taste-value-item"><h4 class="v-e-lbl">ดีต่อสิ่งแวดล้อม</h4><p id="v-desc-e1">ชันโรงช่วยผสมเกสรพืชพรรณไม้ ช่วยรักษาความหลากหลายทางชีวภาพของป่าไม้ให้คงอยู่</p></div>
                     </div>
                 </div>
             </div>
+
+            <!-- วัตถุดิบที่ 2: มะม่วงน้ำดอกไม้โบราณ (สลับฝั่ง เอาข้อความขึ้นก่อน รูปตามหลัง) -->
+            <div class="taste-row">
+                <div class="taste-row-content">
+                    <div class="taste-row-title-container">
+                        <h3 class="taste-row-title" id="ing-title-2">Nam Dok Mai Mango (มะม่วงน้ำดอกไม้)</h3>
+                        <span class="taste-row-badge" id="ing-eco-2">Alluvial Soil Bounty</span>
+                    </div>
+                    <div class="taste-value-stack">
+                        <div class="taste-value-item"><h4 class="v-h-lbl">ดีต่อคนกิน</h4><p id="v-desc-h2">อุดมด้วยวิตามินซีและเบต้าแคโรทีนเข้มข้น บำรุงสายตาและระบบทางเดินอาหาร</p></div>
+                        <div class="taste-value-item"><h4 class="v-c-lbl">ดีต่อชุมชน</h4><p id="v-desc-c2">ร่วมสืบทอดสวนผลไม้ยกร่องโบราณ อัตลักษณ์วิถีเกษตรกรรมดั้งเดิมที่ใกล้สูญหาย</p></div>
+                        <div class="taste-value-item"><h4 class="v-e-lbl">ดีต่อสิ่งแวดล้อม</h4><p id="v-desc-e2">รากต้นมะม่วงช่วยยึดเกาะโครงสร้างหน้าดิน ลดการกัดเซาะพังทลายริมตลิ่งตามคลองธรรมชาติ</p></div>
+                    </div>
+                </div>
+                <div class="taste-row-img-box">
+                    <img src="https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=1000&q=80" class="taste-row-img">
+                </div>
+            </div>
+
+            <!-- วัตถุดิบที่ 3: ลูกพิลังกาสา (รูปผลเบอร์รี่สดบนต้นในป่าเชิงนิเวศ) -->
+            <div class="taste-row">
+                <div class="taste-row-img-box">
+                    <img src="https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=1000&q=80" class="taste-row-img">
+                </div>
+                <div class="taste-row-content">
+                    <div class="taste-row-title-container">
+                        <h3 class="taste-row-title" id="ing-title-3">Pilangkasa Berry (ลูกพิลังกาสา)</h3>
+                        <span class="taste-row-badge" id="ing-eco-3">Native Herbal Gem</span>
+                    </div>
+                    <div class="taste-value-stack">
+                        <div class="taste-value-item"><h4 class="v-h-lbl">ดีต่อคนกิน</h4><p id="v-desc-h3">มีสารแอนโทไซยานินเข้มข้นสูงมาก ช่วยบำรุงโลหิต ระบบไหลเวียน และหัวใจให้แข็งแรง</p></div>
+                        <div class="taste-value-item"><h4 class="v-c-lbl">ดีต่อชุมชน</h4><p id="v-desc-c3">ฟื้นฟูภูมิปัญญาพืชสมุนไพรโบราณ นำมาแปรรูปเพิ่มมูลค่าทางเศรษฐกิจเพื่อสุขภาพสร้างสรรค์</p></div>
+                        <div class="taste-value-item"><h4 class="v-e-lbl">ดีต่อสิ่งแวดล้อม</h4><p id="v-desc-e3">เติบโตได้ดีในระบบนิเวศป่าชายเลน เป็นแหล่งอาหารอินทรีย์ที่สำคัญของนกและสัตว์ท้องถิ่น</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- วัตถุดิบที่ 4: ต้นจากริมน้ำ (สลับฝั่ง เอาข้อความขึ้นก่อน รูปป่าชายเลนต้นจากที่สมบูรณ์) -->
+            <div class="taste-row">
+                <div class="taste-row-content">
+                    <div class="taste-row-title-container">
+                        <h3 class="taste-row-title" id="ing-title-4">Nipa Palm (ต้นจาก)</h3>
+                        <span class="taste-row-badge" id="ing-eco-4">Natural Water Filter</span>
+                    </div>
+                    <div class="taste-value-stack">
+                        <div class="taste-value-item"><h4 class="v-h-lbl">ดีต่อคนกิน</h4><p id="v-desc-h4">น้ำตาลจากธรรมชาติมีค่าดัชนีน้ำตาลต่ำ (Low GI) เหมาะสำหรับผู้ควบคุมน้ำหนักและเบาหวาน</p></div>
+                        <div class="taste-value-item"><h4 class="v-c-lbl">ดีต่อชุมชน</h4><p id="v-desc-c4">สร้างอาชีพหัตถกรรมเย็บตับจาก และขนมพื้นบ้านโบราณอันเป็นเอกลักษณ์วัฒนธรรมริมน้ำ</p></div>
+                        <div class="taste-value-item"><h4 class="v-e-lbl">ดีต่อสิ่งแวดล้อม</h4><p id="v-desc-e4">ระบบรากหนาแน่นพิเศษช่วยกรองสารเคมี บำบัดน้ำเสีย และยึดหน้าดินริมคลองสองน้ำอย่างยั่งยืน</p></div>
+                    </div>
+                </div>
+                <div class="taste-row-img-box">
+                    <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80" class="taste-row-img">
+                </div>
+            </div>
+
         </section>
 
-        <!-- ฟอร์มจองล่วงหน้า Farm to Table -->
+        <!-- ฟอร์มจองล่วงหน้า Farm to Table (คงไว้เหมือนเดิม) -->
         <section class="booking-section">
             <span class="section-tag" style="color: #edf0ee;" id="book-tag">Exclusive Pre-Order</span>
             <h2 style="font-size: 38px;" id="book-heading">Reserve Your Farm-to-Table Experience</h2>
@@ -386,9 +414,9 @@
                 prodTag2: "นวัตกรรมอาหารเพื่อสุขภาพ", prodName2: "พาสต้าแป้งกล้วยน้ำว้าดิบอินทรีย์", prodBuy2: "ซื้อเลย",
                 prodTag3: "ผลิตภัณฑ์เชิงนิเวศ", prodName3: "กระเป๋าเสื่อกกทอมือดีไซน์ร่วมสมัย", prodBuy3: "ซื้อเลย",
 
-                // Sook Taste TH (เรื่องเล่า & ฟอร์มจอง)
+                // Sook Taste Luxury TH
                 tasteBannerTitle: "ภูมิปัญญาแห่งรสชาติแห่งบางกะเจ้า", tasteBannerSub: "เชิดชูระบบนิเวศผืนป่าผ่านศาสตร์แห่งอาหารระดับพรีเมียม",
-                tasteBackBtn: "← กลับหน้าหลัก", ingSectionTag: "ระบบนิเวศบนจานอาหาร", ingSectionHeading: "ทุกวัตถุดิบล้วนมีเรื่องเล่า",
+                tasteBackBtn: "← กลับหน้าหลัก", ingSectionTag: "ระบบนิเวศบนจานอาหาร", ingSectionHeading: "ทุกวัตถุดิบล้วนมีเรื่องเล่าที่งดงาม",
                 vHuman: "ดีต่อคนกิน", vCommunity: "ดีต่อชุมชน", vEnv: "ดีต่อสิ่งแวดล้อม",
                 ingTitle1: "น้ำผึ้งชันโรง", ingEco1: "ผู้พิทักษ์การผสมเกสร",
                 vDescH1: "สารต้านอนุมูลอิสระสูงกว่าน้ำผึ้งทั่วไป บำรุงสมองและเสริมภูมิคุ้มกันระดับลึก",
@@ -426,7 +454,7 @@
                 prodTag2: "Wellness & Food", prodName2: "Green Banana Flour Pasta", prodBuy2: "Buy Now",
                 prodTag3: "Eco Product", prodName3: "Handcrafted Reed Mat Bag", prodBuy3: "Buy Now",
 
-                // Sook Taste EN
+                // Sook Taste Luxury EN
                 tasteBannerTitle: "The Culinary Wisdom of Bang Krachao", tasteBannerSub: "Honoring Heritage Ecosystems Through Gastronomy",
                 tasteBackBtn: "← Back to Home", ingSectionTag: "Ecology on a Plate", ingSectionHeading: "Every Ingredient Tells a Story",
                 vHuman: "Good for Health", vCommunity: "Good for Community", vEnv: "Good for Environment",
@@ -454,11 +482,9 @@
 
         // ระบบควบคุมสลับหน้าจอ (SPA Navigation)
         function navigate(page) {
-            // ซ่อนทุกหน้าก่อน
             document.querySelectorAll('.page-view').forEach(view => view.style.display = 'none');
             document.getElementById('main-header').classList.remove('subpage-active');
 
-            // เลือกเปิดเฉพาะหน้าที่ระบุ
             if (page === 'home') {
                 document.getElementById('homepage-view').style.display = 'block';
             } else if (page === 'shop') {
@@ -519,11 +545,11 @@
             document.getElementById('lbl-guests').innerText = data[lang].lblGuests;
             document.getElementById('lbl-btn').innerText = data[lang].lblBtn;
 
-            // แปลหัวข้อกล่อง 3 มิติในทุกการ์ด
-            document.querySelectorAll('.ingredient-card').forEach(card => {
-                card.querySelectorAll('.value-box h4')[0].innerText = data[lang].vHuman;
-                card.querySelectorAll('.value-box h4')[1].innerText = data[lang].vCommunity;
-                card.querySelectorAll('.value-box h4')[2].innerText = data[lang].vEnv;
+            // แปลป้ายหัวข้อ 3 มิติเชิงนิเวศ (ดีต่อคนกิน ดีต่อชุมชน ดีต่อสิ่งแวดล้อม)
+            document.querySelectorAll('.taste-row-content').forEach(row => {
+                row.querySelectorAll('.taste-value-item h4')[0].innerText = data[lang].vHuman;
+                row.querySelectorAll('.taste-value-item h4')[1].innerText = data[lang].vCommunity;
+                row.querySelectorAll('.taste-value-item h4')[2].innerText = data[lang].vEnv;
             });
             for(let j=1; j<=4; j++) {
                 document.getElementById(`ing-title-${j}`).innerText = data[lang][`ingTitle${j}`];
